@@ -1,0 +1,7 @@
+converage.html
+lib-cov
+node_modules
+*.swp
+*.swo
+.#*
+*#

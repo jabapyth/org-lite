@@ -1,0 +1,29 @@
+{
+  "name": "org-lite",
+  "version": "0.0.0",
+  "description": "Does some parsing of the org-mode format",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "supervisor": "*",
+    "mocha": "*",
+    "chai": "*",
+    "wrench": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jabapyth/org-lite.git"
+  },
+  "keywords": [
+    "nodejs",
+    "org-mode",
+    "emacs",
+    "org",
+    "parser",
+    "parse"
+  ],
+  "author": "Jared Forsyth <jared@jaredforsyth.com>",
+  "license": "MIT"
+}
