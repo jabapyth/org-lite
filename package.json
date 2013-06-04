@@ -25,5 +25,8 @@
     "parse"
   ],
   "author": "Jared Forsyth <jared@jaredforsyth.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "*"
+  }
 }
