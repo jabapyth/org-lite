@@ -93,7 +93,7 @@ describe('starify', function(){
     files.forEach(function(fname){
       if (fname.slice(0, 4) !== 'good' || fname.slice(-4) !== '.txt') return;
       it('should parse ' + fname + ' correctly', function(){
-        var input = fs.readFileSync(__dirname + '/data/starify/' + fname, {encoding: 'utf8'})
+        var input = fs.readFileSync(__dirname + '/data/starify/' + fname).toString('utf8')
           , parts = input.split('\n-----\n')
           , parsed = org.starify(org.tolines(parts[0]))
           , json = JSON.parse(parts[1]);
@@ -106,7 +106,7 @@ describe('starify', function(){
     files.forEach(function(fname){
       if (fname.slice(0, 3) !== 'bad' || fname.slice(-4) !== '.txt') return;
       it('should fail to parse ' + fname, function(){
-        var input = fs.readFileSync(__dirname + '/data/starify/' + fname, {encoding: 'utf8'})
+        var input = fs.readFileSync(__dirname + '/data/starify/' + fname).toString('utf8')
           , parse = function(){org.starify(org.tolines(input))};
         expect(parse).to.throw(org.ParseError);
       });
@@ -120,7 +120,7 @@ describe('serialize', function(){
     files.forEach(function(fname){
       if (fname.slice(0, 4) !== 'good' || fname.slice(-4) !== '.txt') return;
       it('should serialize ' + fname + ' correctly', function(){
-        var input = fs.readFileSync(__dirname + '/data/starify/' + fname, {encoding: 'utf8'})
+        var input = fs.readFileSync(__dirname + '/data/starify/' + fname).toString('utf8')
           , parts = input.split('\n-----\n')
           // , parsed = org.starify(org.tolines(parts[0]))
           , json = JSON.parse(parts[1])
@@ -206,7 +206,7 @@ describe('promote()', function(){
         if (!fs.existsSync(dir)) {
           wrench.mkdirSyncRecursive(dir, 0777);
         }
-        fs.writeFileSync(fname, lines.slice(1).join('\n'), {encoding:'utf8'});
+        fs.writeFileSync(fname, lines.slice(1).join('\n'));
       });
         
       var files = {};
@@ -228,14 +228,14 @@ describe('promote()', function(){
     files.forEach(function(fname){
       if (fname[0] === '.' || fname.slice(-4) !== '.txt') return;
       it('should promote ' + fname + ' correctly', function(){
-        var input = fs.readFileSync(path.join(place, fname), {encoding: 'utf8'});
+        var input = fs.readFileSync(path.join(place, fname)).toString('utf8')
         var files = setup(fname, input, tmp);
         org.promote(tmp, 1);
         Object.keys(files).forEach(function(fname){
           if (fname.slice(-3) === 'org')
             expect(org.read(path.join(tmp, fname)).children).to.eql(files[fname]);
           else
-            expect(fs.readFileSync(path.join(tmp, fname), {encoding: 'utf8'})).to.eql(files[fname]);
+            expect(fs.readFileSync(path.join(tmp, fname)).toString('utf8')).to.eql(files[fname]);
         });
       });
     });
