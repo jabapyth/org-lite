@@ -1,6 +1,6 @@
 {
   "name": "org-lite",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Does some parsing of the org-mode format",
   "main": "index.js",
   "scripts": {
