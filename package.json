@@ -29,6 +29,7 @@
   "author": "Jared Forsyth <jared@jaredforsyth.com>",
   "license": "MIT",
   "dependencies": {
-    "mkdirp": "*"
+    "mkdirp": "*",
+    "debug": "~0.7.2"
   }
 }
