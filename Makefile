@@ -6,7 +6,14 @@ watch-test:
 watch-cov:
 	supervisor -n exit -w lib,test -e txt,js -x make -- test-cov -B -s
 
-test: lib
+test: lint test-only
+
+lintfiles := *.js *.json lib test
+
+lint: node_modules
+	@./node_modules/.bin/jshint --verbose --extra-ext=.js,.json $(lintfiles)
+
+test-only: lib
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--reporter $(REPORTER)
 	@touch test

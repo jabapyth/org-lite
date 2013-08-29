@@ -1,0 +1,15 @@
+{
+  "node": true,
+  "globals": {
+    "require": false,
+    "module": false,
+    "it": false,
+    "describe": false,
+    "before": false,
+    "after": false,
+    "beforeEach": false,
+    "afterEach": false
+  },
+  "undef": true,
+  "laxcomma": true
+}

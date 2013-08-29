@@ -10,7 +10,9 @@
     "supervisor": "*",
     "mocha": "*",
     "chai": "*",
-    "wrench": "*"
+    "wrench": "*",
+    "jshint": "~2.1.10",
+    "expect.js": "~0.2.0"
   },
   "repository": {
     "type": "git",
